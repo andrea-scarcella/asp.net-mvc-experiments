@@ -3,7 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleChoiceQuestions", "MultipleChoiceQuestions\MultipleChoiceQuestions.csproj", "{88E8784B-2560-4977-B464-C7EB74946AD6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleChoiceQuestions.DAL", "MultipleChoiceQuestions.DAL\MultipleChoiceQuestions.DAL.csproj", "{05C717CA-6624-476D-BC35-11C73046B419}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleChoiceQuestions.Test", "MultipleChoiceQuestions.Test\MultipleChoiceQuestions.Test.csproj", "{3E7B26F2-5406-4010-8520-D1C14A0CE8B8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9C38F847-7590-454F-A958-7D36956F1BA3}"
+	ProjectSection(SolutionItems) = preProject
+		Local.testsettings = Local.testsettings
+		MultipleChoiceQuestions.vsmdi = MultipleChoiceQuestions.vsmdi
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleChoiceQuestions.BL", "MultipleChoiceQuestions.BL\MultipleChoiceQuestions.BL.csproj", "{1BF69110-A612-45B5-8C7E-87F146E30097}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = MultipleChoiceQuestions.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -13,6 +29,18 @@ Global
 		{88E8784B-2560-4977-B464-C7EB74946AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{88E8784B-2560-4977-B464-C7EB74946AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{88E8784B-2560-4977-B464-C7EB74946AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05C717CA-6624-476D-BC35-11C73046B419}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05C717CA-6624-476D-BC35-11C73046B419}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05C717CA-6624-476D-BC35-11C73046B419}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05C717CA-6624-476D-BC35-11C73046B419}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E7B26F2-5406-4010-8520-D1C14A0CE8B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E7B26F2-5406-4010-8520-D1C14A0CE8B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E7B26F2-5406-4010-8520-D1C14A0CE8B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E7B26F2-5406-4010-8520-D1C14A0CE8B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BF69110-A612-45B5-8C7E-87F146E30097}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BF69110-A612-45B5-8C7E-87F146E30097}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BF69110-A612-45B5-8C7E-87F146E30097}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BF69110-A612-45B5-8C7E-87F146E30097}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

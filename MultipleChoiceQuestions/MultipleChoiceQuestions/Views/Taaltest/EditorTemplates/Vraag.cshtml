@@ -1,0 +1,11 @@
+﻿@model MultipleChoiceQuestions.BL.Vraag
+<div>
+    @Html.HiddenFor(x=>x.ID)
+    <h3> @Model.tekst</h3>
+    @foreach (var a in Model.antwoorden)
+    {
+       <p>
+          @Html.RadioButtonFor(b=>b.gekozenAntwoord,a.ID)  @a.tekst
+       </p>
+    }
+</div>

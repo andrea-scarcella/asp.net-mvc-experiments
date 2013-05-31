@@ -143,6 +143,19 @@
   <ItemGroup>
     <Content Include="Views\Taaltest\Index.cshtml" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MultipleChoiceQuestions.BL\MultipleChoiceQuestions.BL.csproj">
+      <Project>{1BF69110-A612-45B5-8C7E-87F146E30097}</Project>
+      <Name>MultipleChoiceQuestions.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MultipleChoiceQuestions.DAL\MultipleChoiceQuestions.DAL.csproj">
+      <Project>{05C717CA-6624-476D-BC35-11C73046B419}</Project>
+      <Name>MultipleChoiceQuestions.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Taaltest\EditorTemplates\Vraag.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
