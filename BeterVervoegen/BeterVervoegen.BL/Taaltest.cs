@@ -22,6 +22,6 @@ namespace BeterVervoegen.BL
             //vragen = tmp;
         }
         public  int ID { get; set; }
-        public IEnumerable<TestDeel> vragen { get; set; }
+        public IList<TestDeel> vragen { get; set; }
     }
 }

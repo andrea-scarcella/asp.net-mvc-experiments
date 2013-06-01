@@ -16,8 +16,8 @@ namespace BeterVervoegen.BL
             antwoorden = new List<TestOnderdeel>();
         }
         public string tekst { get; set; }
-        public IEnumerable<TestOnderdeel> goedeAntwoorden;
-        public IEnumerable<TestOnderdeel> antwoorden;
+        public IList<TestOnderdeel> goedeAntwoorden { get; set; }
+        public IList<TestOnderdeel> antwoorden { get; set; }
         public void add(string tekst, string antwoord, bool goedeAntwoord)
         {
             TestOnderdeel t = new TestOnderdeel();

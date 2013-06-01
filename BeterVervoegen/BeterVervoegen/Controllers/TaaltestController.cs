@@ -36,7 +36,7 @@ namespace BeterVervoegen.Controllers
                     }
                 }
             }
-            return View();
+            return View(taalTest);
         }
     }
 }
