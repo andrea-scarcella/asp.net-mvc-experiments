@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeterVervoegen", "BeterVervoegen\BeterVervoegen.csproj", "{6CED5F6D-B624-4068-8FB2-CC83F5421AD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeterVervoegen.BL", "BeterVervoegen.BL\BeterVervoegen.BL.csproj", "{DD00CE5D-0C6F-42B7-B141-44083AA26787}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CED5F6D-B624-4068-8FB2-CC83F5421AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CED5F6D-B624-4068-8FB2-CC83F5421AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CED5F6D-B624-4068-8FB2-CC83F5421AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CED5F6D-B624-4068-8FB2-CC83F5421AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD00CE5D-0C6F-42B7-B141-44083AA26787}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD00CE5D-0C6F-42B7-B141-44083AA26787}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD00CE5D-0C6F-42B7-B141-44083AA26787}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD00CE5D-0C6F-42B7-B141-44083AA26787}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

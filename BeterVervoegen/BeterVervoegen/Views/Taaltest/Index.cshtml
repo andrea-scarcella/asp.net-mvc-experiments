@@ -1,0 +1,14 @@
+﻿@model MultipleChoiceQuestions.BL.Taaltest
+
+@{
+    ViewBag.Title = "Taaltest";
+}
+
+<h2>Taaltest van vandaag</h2>
+@*http://stackoverflow.com/questions/12883869/grouping-radio-buttons-in-c-sharp-mvc*@
+
+@using (Html.BeginForm())
+{
+    @Html.EditorFor(x=>x.vragen)
+    <input type="submit" />
+}
