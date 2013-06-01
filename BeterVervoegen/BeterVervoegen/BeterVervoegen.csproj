@@ -37,6 +37,9 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.4.1.10331.0\lib\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="NSubstitute">
+      <HintPath>..\packages\NSubstitute.1.6.0.0\lib\NET40\NSubstitute.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -142,6 +145,22 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Taaltest\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeterVervoegen.BL\BeterVervoegen.BL.csproj">
+      <Project>{DD00CE5D-0C6F-42B7-B141-44083AA26787}</Project>
+      <Name>BeterVervoegen.BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BeterVervoegen.DAL\BeterVervoegen.DAL.csproj">
+      <Project>{5E294DDA-F335-48A7-A9B0-9DDFE3DD104A}</Project>
+      <Name>BeterVervoegen.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Taaltest\EditorTemplates\TestDeel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Taaltest\EditorTemplates\TestOnderdeel.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

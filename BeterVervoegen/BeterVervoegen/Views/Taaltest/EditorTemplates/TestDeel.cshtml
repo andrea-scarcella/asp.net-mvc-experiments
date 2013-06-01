@@ -1,0 +1,9 @@
+﻿@model BeterVervoegen.BL.TestDeel
+<div>
+    @Html.HiddenFor(x => x.ID)
+    <h3>@Model.tekst</h3>
+    @for (int onderdeelIndex = 0; onderdeelIndex < @Model.antwoorden.Count(); onderdeelIndex++)
+    {
+        @Html.EditorFor(model => model.antwoorden.ToArray()[onderdeelIndex],"TestOnderdeel")   
+    }
+</div>
