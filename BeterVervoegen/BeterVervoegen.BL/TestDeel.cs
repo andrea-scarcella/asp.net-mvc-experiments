@@ -5,17 +5,34 @@ using System.Text;
 
 namespace BeterVervoegen.BL
 {
+    [Serializable]
     public class TestDeel
     {
-        public int ID { get; set; }
-
-        public TestDeel(int p)
+        public int? ID { get; set; }
+        public TestDeel()
         {
-            // TODO: Complete member initialization
-            this.ID = p;
+            ID = null;
+            goedeAntwoorden = new List<TestOnderdeel>();
+            antwoorden = new List<TestOnderdeel>();
         }
         public string tekst { get; set; }
         public IEnumerable<TestOnderdeel> goedeAntwoorden;
         public IEnumerable<TestOnderdeel> antwoorden;
+        public void add(string tekst, string antwoord, bool goedeAntwoord)
+        {
+            TestOnderdeel t = new TestOnderdeel();
+            t.tekst = tekst;
+            t.antwoord = antwoord;
+            List<TestOnderdeel> lst = null;
+            if (goedeAntwoord)
+            {
+                lst = (List<TestOnderdeel>)goedeAntwoorden;
+            }
+            else
+            {
+                lst = (List<TestOnderdeel>)antwoorden;
+            }
+            lst.Add(t);
+        }
     }
 }

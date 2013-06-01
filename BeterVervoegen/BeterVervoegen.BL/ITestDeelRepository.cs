@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BeterVervoegen.BL
 {
-    interface ITestDeelRepository: IRepository<TestDeel,string>
+ public   interface ITestDeelRepository: IRepository<TestDeel,string>
     {
     }
 }

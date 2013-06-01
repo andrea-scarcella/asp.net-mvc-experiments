@@ -7,10 +7,11 @@ namespace BeterVervoegen.BL
 {
     public interface IRepository<T, L>
     {
-        T get(L lookupData);
+        IEnumerable<T> get(L lookupData);
         T create();
         T save(T t);
         T update(T t);
+        T delete(T t);
     }
    
 }

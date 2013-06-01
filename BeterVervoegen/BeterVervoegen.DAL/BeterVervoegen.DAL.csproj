@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DD00CE5D-0C6F-42B7-B141-44083AA26787}</ProjectGuid>
+    <ProjectGuid>{5E294DDA-F335-48A7-A9B0-9DDFE3DD104A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BeterVervoegen.BL</RootNamespace>
-    <AssemblyName>BeterVervoegen.BL</AssemblyName>
+    <RootNamespace>BeterVervoegen.DAL</RootNamespace>
+    <AssemblyName>BeterVervoegen.DAL</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,13 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ITestDeelRepository.cs" />
-    <Compile Include="ITaaltestRepository.cs" />
-    <Compile Include="IRepository.cs" />
-    <Compile Include="TestOnderdeel.cs" />
-    <Compile Include="Taaltest.cs" />
+    <Compile Include="DummyTestDeelRepository.cs" />
+    <Compile Include="ObjectCopier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestDeel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BeterVervoegen.BL\BeterVervoegen.BL.csproj">
+      <Project>{DD00CE5D-0C6F-42B7-B141-44083AA26787}</Project>
+      <Name>BeterVervoegen.BL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

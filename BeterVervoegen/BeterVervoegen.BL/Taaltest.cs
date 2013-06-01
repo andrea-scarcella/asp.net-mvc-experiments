@@ -9,19 +9,19 @@ namespace BeterVervoegen.BL
     {
         public Taaltest()
         {
-            Random rnd = new Random();
-            ID = 1;
-            var tmp = new List<TestDeel>();
-            for (int i = 0; i < 4; i++)
-            {
-                var f = new TestDeel(ID + i);
-                f.tekst = "Vraag " + i;
+            //Random rnd = new Random();
+            //ID = 1;
+            //var tmp = new List<TestDeel>();
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    var f = new TestDeel();
+            //    f.tekst = "Vraag " + i;
 
-                tmp.Add(f);
-            }
-            vragen = tmp;
+            //    tmp.Add(f);
+            //}
+            //vragen = tmp;
         }
-        private int ID { get; set; }
+        public  int ID { get; set; }
         public IEnumerable<TestDeel> vragen { get; set; }
     }
 }

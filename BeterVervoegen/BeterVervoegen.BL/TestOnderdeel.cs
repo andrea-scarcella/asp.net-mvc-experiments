@@ -5,19 +5,12 @@ using System.Text;
 
 namespace BeterVervoegen.BL
 {
+    [Serializable]
     public class TestOnderdeel
     {
-        public TestOnderdeel()
-        {
-            ID = 0;
-        }
-        public TestOnderdeel(int id)
-        {
-            ID = id;
-
-        }
+        
         public string tekst { get; set; }
         public string antwoord { set; get; }
-        public int ID { get; set; }
+        public int? ID { get; set; }
     }
 }
