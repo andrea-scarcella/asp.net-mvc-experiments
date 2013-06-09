@@ -23,16 +23,28 @@ namespace BeterVervoegen.BL
             TestOnderdeel t = new TestOnderdeel();
             t.tekst = tekst;
             t.antwoord = antwoord;
-            List<TestOnderdeel> lst = null;
+            IList<TestOnderdeel> lst = null;
             if (goedeAntwoord)
             {
-                lst = (List<TestOnderdeel>)goedeAntwoorden;
+                lst = goedeAntwoorden;
             }
             else
             {
-                lst = (List<TestOnderdeel>)antwoorden;
+                lst = antwoorden;
             }
             lst.Add(t);
         }
+
+        public bool corrigeren()
+        {
+            fouten = (from ant in antwoorden
+                      from ga in goedeAntwoorden
+                      where !(ant.antwoord.Equals(ga.antwoord))
+                      select ant);
+            return (fouten ?? new TestOnderdeel[] { }).Count() > 0;
+        }
+
+
+        private IEnumerable<TestOnderdeel> fouten { get; set; }
     }
 }

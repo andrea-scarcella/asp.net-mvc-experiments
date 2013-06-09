@@ -9,6 +9,8 @@ namespace BeterVervoegen.BL
     {
         public Taaltest()
         {
+            vragen = new List<TestDeel>();
+            fouten = new List<TestDeel>();
             //Random rnd = new Random();
             //ID = 1;
             //var tmp = new List<TestDeel>();
@@ -21,7 +23,24 @@ namespace BeterVervoegen.BL
             //}
             //vragen = tmp;
         }
-        public  int ID { get; set; }
+        public int ID { get; set; }
         public IList<TestDeel> vragen { get; set; }
+
+        public void corrigeren()
+        {
+            foreach (var item in vragen)
+            {
+                if (item.corrigeren())
+                {
+                    fouten.Add(item);
+                }
+            }
+        }
+
+        public IList<TestDeel> fouten
+        {
+            get;
+            private set;
+        }
     }
 }
