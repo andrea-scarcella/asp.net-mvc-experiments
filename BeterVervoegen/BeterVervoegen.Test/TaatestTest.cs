@@ -18,14 +18,37 @@ namespace BeterVervoegen.Test
         {
             Taaltest t = new Taaltest();
             TestDeel td = new TestDeel();
-            
+
             td.add("Tekst", "Fout", false);
             td.add("Tekst", "A1", true);
             t.vragen.Add(td);
             t.corrigeren();
             IList<TestDeel> fouten = t.fouten;
             //Has.Exactly(1).Member(t)
-            Assert.AreEqual(fouten.AsEnumerable().Count(), 1);
+            Assert.AreEqual(1, fouten.AsEnumerable().Count());
+        }
+
+        [Test]
+        public void testTemplateDetectsWrongAnswers()
+        {
+
+            ///#AS:2013/06/18: fundamentally wrong, use a repository implementation 
+            //to get taaltest instances
+            Taaltest templateTaaltest = new Taaltest();
+            TestDeel templateTd = new TestDeel();
+            templateTd.add("Tekst", "A1", true);
+            templateTaaltest.vragen.Add(templateTd);
+
+            Taaltest t = new Taaltest();
+            TestDeel td = new TestDeel();
+            td.add("Tekst", "Fout", false);
+            t.vragen.Add(td);
+
+            templateTaaltest.corrigeren(t);
+
+            IList<TestDeel> fouten = templateTaaltest.fouten;
+            //Has.Exactly(1).Member(t)
+            Assert.AreEqual(1, fouten.AsEnumerable().Count());
         }
     }
 }

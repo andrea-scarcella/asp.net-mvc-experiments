@@ -8,7 +8,7 @@ namespace BeterVervoegen.BL
     [Serializable]
     public class TestOnderdeel
     {
-        
+     
         public string tekst { get; set; }
         public string antwoord { set; get; }
         public int? ID { get; set; }

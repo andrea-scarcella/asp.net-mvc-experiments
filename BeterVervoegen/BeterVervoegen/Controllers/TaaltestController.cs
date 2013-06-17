@@ -16,10 +16,9 @@ namespace BeterVervoegen.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<TestDeel> i = new List<TestDeel> { new TestDeel { ID = 0, tekst = "" } };
+            //IEnumerable<TestDeel> i = new List<TestDeel> { new TestDeel { ID = 0, tekst = "" } };
             ITaaltestRepository r = new Class1();
             var tt = r.get(DateTime.Now);
-
 
             return View(tt.First());
         }

@@ -46,5 +46,14 @@ namespace BeterVervoegen.BL
 
 
         private IEnumerable<TestOnderdeel> fouten { get; set; }
+
+        internal void corrigeren(TestDeel testVraag)
+        {
+            fouten = (from ant in testVraag.antwoorden
+                      from ga in goedeAntwoorden
+                      where !(ant.antwoord.Equals(ga.antwoord))
+                      select  ant);
+            //return (fouten ?? new TestOnderdeel[] { }).Count() > 0;
+        }
     }
 }

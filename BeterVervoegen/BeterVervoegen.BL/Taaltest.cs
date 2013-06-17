@@ -42,5 +42,25 @@ namespace BeterVervoegen.BL
             get;
             private set;
         }
+
+        public void corrigeren(Taaltest taalTestUitslag)
+        {
+
+            foreach (var templateVraag in this.vragen)
+            {
+                var taalTestUitslagVraag =
+                    taalTestUitslag.vragen.Where(x => x.ID == templateVraag.ID).First();
+                var nieuweTestOnderdelen = from uf in taalTestUitslagVraag.antwoorden
+                                           join tf in templateVraag.antwoorden on uf.ID equals tf.ID
+                                           select new TestOnderdeel { ID = tf.ID, tekst = uf.tekst, antwoord = uf.antwoord };
+                templateVraag.antwoorden.Clear();
+                foreach (var onderdeel in nieuweTestOnderdelen)
+                {
+                    templateVraag.antwoorden.Add(onderdeel);
+                }
+            }
+            this.corrigeren();
+
+        }
     }
 }

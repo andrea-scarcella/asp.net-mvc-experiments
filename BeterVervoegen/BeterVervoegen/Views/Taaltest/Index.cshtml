@@ -3,9 +3,8 @@
     ViewBag.Title = "Taaltest";
 }
 @section Styles {
-    @*<link href="@Url.Content("~/Scripts/Formalize/assets/css/formalize.css")" rel="stylesheet" type="text/css" />
-    <script src="@Url.Content("~/Scripts/Formalize/assets/js/jquery.formalize.js")" type="text/javascript"></script>*@
-    <link href="@Url.Content("~/Content/FormStyle.css")" rel="stylesheet" type="text/css" />}
+    <link href="@Url.Content("~/Content/FormStyle.css")" rel="stylesheet" type="text/css" />
+}
 <h2>
     Taaltest van vandaag</h2>
 @*http://stackoverflow.com/questions/12883869/grouping-radio-buttons-in-c-sharp-mvc*@
@@ -16,7 +15,7 @@
         {
         @Html.EditorFor(x => x.vragen[i], "TestDeel")
         }
-@*<div class="centerButtons"></div>*@
+
         <input type="submit" />
     }
 </div>
