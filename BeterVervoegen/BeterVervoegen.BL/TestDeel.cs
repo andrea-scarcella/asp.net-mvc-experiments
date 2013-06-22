@@ -38,7 +38,7 @@ namespace BeterVervoegen.BL
         public bool corrigeren()
         {
             fouten = (from ant in antwoorden
-                      from ga in goedeAntwoorden
+                      join ga in goedeAntwoorden on ant.ID equals ga.ID
                       where !(ant.antwoord.Equals(ga.antwoord))
                       select ant);
             return (fouten ?? new TestOnderdeel[] { }).Count() > 0;

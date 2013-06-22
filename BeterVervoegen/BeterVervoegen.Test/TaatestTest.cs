@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using BeterVervoegen.BL;
+using BeterVervoegen.DAL;
 namespace BeterVervoegen.Test
 {
     [TestFixture]
@@ -34,16 +35,16 @@ namespace BeterVervoegen.Test
 
             ///#AS:2013/06/18: fundamentally wrong, use a repository implementation 
             //to get taaltest instances
-            Taaltest templateTaaltest = new Taaltest();
-            TestDeel templateTd = new TestDeel();
-            templateTd.add("Tekst", "A1", true);
-            templateTaaltest.vragen.Add(templateTd);
+            ITaaltestRepository repo = null;
+            repo = new Class1();
 
-            Taaltest t = new Taaltest();
-            TestDeel td = new TestDeel();
-            td.add("Tekst", "Fout", false);
-            t.vragen.Add(td);
+           var ttl= repo.get(DateTime.Now);
+           Taaltest templateTaaltest = ttl.ElementAt(0);
 
+
+
+           Taaltest t = repo.get(DateTime.Now).ElementAt(0);
+           t.vragen[0].antwoorden[0].antwoord = "FOUT";
             templateTaaltest.corrigeren(t);
 
             IList<TestDeel> fouten = templateTaaltest.fouten;

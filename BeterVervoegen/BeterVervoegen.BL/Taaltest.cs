@@ -46,21 +46,32 @@ namespace BeterVervoegen.BL
         public void corrigeren(Taaltest taalTestUitslag)
         {
 
-            foreach (var templateVraag in this.vragen)
-            {
-                var taalTestUitslagVraag =
-                    taalTestUitslag.vragen.Where(x => x.ID == templateVraag.ID).First();
-                var nieuweTestOnderdelen = from uf in taalTestUitslagVraag.antwoorden
-                                           join tf in templateVraag.antwoorden on uf.ID equals tf.ID
-                                           select new TestOnderdeel { ID = tf.ID, tekst = uf.tekst, antwoord = uf.antwoord };
-                templateVraag.antwoorden.Clear();
-                foreach (var onderdeel in nieuweTestOnderdelen)
-                {
-                    templateVraag.antwoorden.Add(onderdeel);
-                }
-            }
+            var testUitslaagAntwoorden =
+                from tttf in this.vragen
+                join ttuf in taalTestUitslag.vragen on tttf.ID equals ttuf.ID
+                select (
+                from to1 in tttf.antwoorden
+                join to2 in ttuf.antwoorden
+                on to1.ID equals to2.ID
+                select new { ID = tttf.ID, data = new TestOnderdeel { ID = to2.ID, tekst = to2.tekst, antwoord = to2.antwoord } }
+                ).ToList();
+
+            var testUitslaagTestOnderdeelList = testUitslaagAntwoorden.SelectMany(i => i);
+
+            this.vragen.ForEach(v => v.antwoorden.ForEach(
+                a => a.antwoord = testUitslaagTestOnderdeelList.Where(
+                    testOnderdeelWrapper => (testOnderdeelWrapper.ID == v.ID)
+                    ).
+                Where(
+                testOnderdeel => (testOnderdeel.data.ID == a.ID)
+                ).First().data.antwoord)
+                );
             this.corrigeren();
 
         }
+
+
+
+
     }
 }
