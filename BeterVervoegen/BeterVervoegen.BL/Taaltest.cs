@@ -45,7 +45,7 @@ namespace BeterVervoegen.BL
 
         public void corrigeren(Taaltest taalTestUitslag)
         {
-
+            //#AS:2013/06/23: merges answers with template test and corrects it.
             var testUitslaagAntwoorden =
                 from tttf in this.vragen
                 join ttuf in taalTestUitslag.vragen on tttf.ID equals ttuf.ID
