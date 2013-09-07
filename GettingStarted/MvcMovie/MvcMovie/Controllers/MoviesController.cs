@@ -9,7 +9,7 @@ using MvcMovie.Models;
 
 namespace MvcMovie.Controllers
 {
-    public class MoviesController : Controller
+    public class MoviesController : BaseController
     {
         private MovieDbContext db = new MovieDbContext();
 
