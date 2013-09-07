@@ -15,7 +15,7 @@ namespace MvcMovie.Models
         public decimal Price { get; set; }
 
     }
-    public class MovieContext : DbContext
+    public class MovieDbContext : DbContext
     {
         public DbSet<Movie> Movies { get; set; }
     }
