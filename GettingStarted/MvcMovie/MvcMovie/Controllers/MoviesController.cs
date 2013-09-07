@@ -119,9 +119,9 @@ namespace MvcMovie.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-        public ActionResult SearchIndex(string id)
+        public ActionResult SearchIndex(string searchString)
         {
-            string searchString = id;
+            
             var movies = from m in db.Movies
                          select m;
             if (!string.IsNullOrEmpty(searchString))
@@ -130,6 +130,13 @@ namespace MvcMovie.Controllers
             }
             return View(movies);
 
+        }
+       
+        
+        [HttpPost]
+        public string SearchIndex(FormCollection fc, string searchString)
+        {
+            return "<h3> From [HttpPost]SearchIndex: " + searchString + " </h3>";
         }
     }
 }
