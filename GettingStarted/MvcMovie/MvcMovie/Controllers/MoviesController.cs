@@ -119,5 +119,17 @@ namespace MvcMovie.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
+        public ActionResult SearchIndex(string id)
+        {
+            string searchString = id;
+            var movies = from m in db.Movies
+                         select m;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                movies = movies.Where(m => m.Title.Contains(searchString));
+            }
+            return View(movies);
+
+        }
     }
 }
