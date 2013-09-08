@@ -35,7 +35,7 @@ namespace MvcMovie.Migrations
               ReleaseDate = DateTime.Parse("1984-3-13"),
               Genre = "Comedy",
               Price = 8.99M,
-              Rating = "G"
+              Rating = "PG"
           },
 
           new Movie
@@ -44,7 +44,7 @@ namespace MvcMovie.Migrations
               ReleaseDate = DateTime.Parse("1986-2-23"),
               Genre = "Comedy",
               Price = 9.99M,
-              Rating = "G"
+              Rating = "PG"
           },
 
         new Movie
