@@ -6,7 +6,8 @@
 
 <h2>Edit</h2>
 
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
@@ -46,7 +47,13 @@
             @Html.EditorFor(model => model.Price)
             @Html.ValidationMessageFor(model => model.Price)
         </div>
-
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Rating)
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Rating)
+            @Html.ValidationMessageFor(model => model.Rating)
+        </div>
         <p>
             <input type="submit" value="Save" />
         </p>

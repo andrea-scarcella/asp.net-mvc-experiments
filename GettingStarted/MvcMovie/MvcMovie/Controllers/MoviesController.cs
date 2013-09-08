@@ -11,7 +11,7 @@ namespace MvcMovie.Controllers
 {
     public class MoviesController : BaseController
     {
-        private MovieDbContext db = new MovieDbContext();
+        private MovieDBContext db = new MovieDBContext();
 
         //
         // GET: /Movies/
@@ -119,20 +119,36 @@ namespace MvcMovie.Controllers
             db.Dispose();
             base.Dispose(disposing);
         }
-        public ActionResult SearchIndex(string searchString)
+        public ActionResult SearchIndex(string movieGenre, string searchString)
         {
-            
+            var genreQuery = from m in db.Movies
+                             orderby m.Genre
+                             select m.Genre;
+            var genreList = new List<string>();
+
+            genreList.AddRange(genreQuery.Distinct());
+
+            ViewBag.movieGenre = new SelectList(genreList);
+
             var movies = from m in db.Movies
                          select m;
             if (!string.IsNullOrEmpty(searchString))
             {
                 movies = movies.Where(m => m.Title.Contains(searchString));
             }
+            if (string.IsNullOrEmpty(movieGenre))
+            {
+                return View(movies);
+            }
+            else
+            {
+                movies = movies.Where(m => m.Genre.Equals(movieGenre));
+            }
             return View(movies);
 
         }
-       
-        
+
+
         [HttpPost]
         public string SearchIndex(FormCollection fc, string searchString)
         {
