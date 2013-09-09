@@ -198,6 +198,10 @@
     <Compile Include="Migrations\201309081550085_AddRatingMig.Designer.cs">
       <DependentUpon>201309081550085_AddRatingMig.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201309092018532_AddDataAnnotationsMig.cs" />
+    <Compile Include="Migrations\201309092018532_AddDataAnnotationsMig.Designer.cs">
+      <DependentUpon>201309092018532_AddDataAnnotationsMig.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\Movie.cs" />
@@ -337,6 +341,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201309081550085_AddRatingMig.resx">
       <DependentUpon>201309081550085_AddRatingMig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201309092018532_AddDataAnnotationsMig.resx">
+      <DependentUpon>201309092018532_AddDataAnnotationsMig.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
