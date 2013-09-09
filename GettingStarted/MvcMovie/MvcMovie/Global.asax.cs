@@ -29,8 +29,9 @@ namespace MvcMovie
         public void Application_OnBeginRequest(object sender, EventArgs e)
         {
             CultureInfo culture = System.Globalization.CultureInfo.InvariantCulture;
-            Thread.CurrentThread.CurrentCulture = culture;
-            Thread.CurrentThread.CurrentUICulture = culture;
+
+            //Thread.CurrentThread.CurrentCulture = culture;
+            //Thread.CurrentThread.CurrentUICulture = culture;
         }
     }
 }
