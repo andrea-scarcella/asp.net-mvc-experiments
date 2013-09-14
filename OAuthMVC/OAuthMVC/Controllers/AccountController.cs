@@ -53,7 +53,7 @@ namespace OAuthMVC.Controllers
 		public ActionResult LogOff()
 		{
 			WebSecurity.Logout();
-
+			Session.Remove("facebooktoken");
 			return RedirectToAction("Index", "Home");
 		}
 
@@ -222,7 +222,10 @@ namespace OAuthMVC.Controllers
 			{
 				return RedirectToAction("ExternalLoginFailure");
 			}
-
+			if (result.ExtraData.Keys.Contains("accesstoken"))
+			{
+				Session["facebooktoken"] = result.ExtraData["accesstoken"];
+			}
 			if (OAuthWebSecurity.Login(result.Provider, result.ProviderUserId, createPersistentCookie: false))
 			{
 				return RedirectToLocal(returnUrl);
@@ -278,8 +281,26 @@ namespace OAuthMVC.Controllers
 						// Insert name into the profile table
 						UserProfile newuser = db.UserProfiles.Add(new UserProfile { UserName = model.UserName });
 						db.SaveChanges();
+						bool facebookVerified;
 
-						db.ExternalUsers.Add(new ExternalUserInformation { UserId = newuser.UserId, FullName = model.FullName, Link = model.Link });
+						var client = new Facebook.FacebookClient(Session["facebooktoken"].ToString());
+						dynamic response = client.Get("me", new { fields = "verified" });
+						if (response.ContainsKey("verified"))
+						{
+							facebookVerified = response["verified"];
+						}
+						else
+						{
+							facebookVerified = false;
+						}
+
+						db.ExternalUsers.Add(new ExternalUserInformation
+						{
+							UserId = newuser.UserId,
+							FullName = model.FullName,
+							Link = model.Link,
+							Verified = facebookVerified
+						});
 						db.SaveChanges();
 
 						OAuthWebSecurity.CreateOrUpdateAccount(provider, providerUserId, model.UserName);
