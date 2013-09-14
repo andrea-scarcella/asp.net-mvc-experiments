@@ -16,6 +16,7 @@ namespace OAuthMVC.Models
 		}
 
 		public DbSet<UserProfile> UserProfiles { get; set; }
+		public DbSet<ExternalUserInformation> ExternalUsers { get; set; }
 	}
 
 	[Table("UserProfile")]
@@ -34,8 +35,21 @@ namespace OAuthMVC.Models
 		public string UserName { get; set; }
 
 		public string ExternalLoginData { get; set; }
-	}
+		[Display(Name = "Full name")]
+		public string FullName { get; set; }
 
+		[Display(Name = "Personal page link")]
+		public string Link { get; set; }
+	}
+	[Table("ExtraUserInformation")]
+	public class ExternalUserInformation
+	{
+		public int Id { get; set; }
+		public int UserId { get; set; }
+		public string FullName { get; set; }
+		public string Link { get; set; }
+		public bool? Verified { get; set; }
+	}
 	public class LocalPasswordModel
 	{
 		[Required]
