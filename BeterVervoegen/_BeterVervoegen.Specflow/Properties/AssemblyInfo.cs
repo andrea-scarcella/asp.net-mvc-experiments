@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("BeterVervoegen.Specflow")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("FKE")]
+[assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("BeterVervoegen.Specflow")]
-[assembly: AssemblyCopyright("Copyright © FKE 2013")]
+[assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("bef2bafe-f582-46d4-9aae-31a726547b33")]
+[assembly: Guid("2099a9f7-ae88-40ca-ad50-2b1ae7a6b163")]
 
 // Version information for an assembly consists of the following four values:
 //
