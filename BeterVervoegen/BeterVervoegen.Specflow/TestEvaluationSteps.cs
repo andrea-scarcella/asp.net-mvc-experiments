@@ -6,7 +6,7 @@ namespace BeterVervoegen.Specflow
 	[Binding]
 	public class TestEvaluationSteps
 	{
-		
+
 		[Given(@"the infinitive is '(.*)'")]
 		public void GivenTheInfinitiveIs(string p0)
 		{
@@ -39,6 +39,6 @@ namespace BeterVervoegen.Specflow
 			ScenarioContext.Current.Pending();
 		}
 
-		public string testItemKey="Question";
+		public string testItemKey = "Question";
 	}
 }

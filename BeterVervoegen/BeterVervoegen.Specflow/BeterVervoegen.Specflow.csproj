@@ -50,14 +50,19 @@
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestEvaluationSteps.cs" />
+    <Compile Include="TestEvaluationSteps.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestEvaluationSteps.feature</DependentUpon>
+    </Compile>
     <Compile Include="TestItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="TestEvaluation.feature">
+    <None Include="TestEvaluationSteps.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>TestEvaluation1.feature.cs</LastGenOutput>
+      <LastGenOutput>TestEvaluationSteps.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
