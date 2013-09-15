@@ -7,25 +7,32 @@ namespace BeterVervoegen.Specflow
 {
 	public class TestItem
 	{
-		private string infinitive;
-		private string simplePast;
-		private string pastParticiple;
-
-		public TestItem(string infinitive, string simplePast, string pastParticiple)
+		public string Infinitive { get; set; }
+		public string SimplePast { get; set; }
+		public string PastParticiple { get; set; }
+		public TestItem(int ItemId, string Infinitive, string SimplePast, string PastParticiple)
 		{
 			// TODO: Complete member initialization
-			this.infinitive = infinitive;
-			this.simplePast = simplePast;
-			this.pastParticiple = pastParticiple;
+			this.ItemId = ItemId;
+			this.Infinitive = Infinitive;
+			this.SimplePast = SimplePast;
+			this.PastParticiple = PastParticiple;
+		}
+		public TestItem(string Infinitive, string SimplePast, string PastParticiple)
+		{
+			// TODO: Complete member initialization
+			this.Infinitive = Infinitive;
+			this.SimplePast = SimplePast;
+			this.PastParticiple = PastParticiple;
 		}
 
 		public string AnswerSimplePast { get; set; }
 
 		public string AnswerPastParticiple { get; set; }
 
-		internal void evaluate()
+		internal void Evaluate()
 		{
-			correct = simplePast.Equals(AnswerSimplePast, StringComparison.InvariantCultureIgnoreCase) && pastParticiple.Equals(AnswerPastParticiple, StringComparison.InvariantCultureIgnoreCase);
+			correct = SimplePast.Equals(AnswerSimplePast, StringComparison.InvariantCultureIgnoreCase) && PastParticiple.Equals(AnswerPastParticiple, StringComparison.InvariantCultureIgnoreCase);
 		}
 
 
@@ -36,5 +43,7 @@ namespace BeterVervoegen.Specflow
 		{
 			return correct ? "OK" : "KO";
 		}
+
+		public int ItemId { get; set; }
 	}
 }

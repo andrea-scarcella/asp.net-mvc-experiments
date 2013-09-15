@@ -88,6 +88,56 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("evaluate a test")]
+        public virtual void EvaluateATest()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("evaluate a test", ((string[])(null)));
+#line 14
+this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ItemID",
+                        "Infinitive",
+                        "SimplePast",
+                        "PastParticiple"});
+            table1.AddRow(new string[] {
+                        "1",
+                        "zijn",
+                        "was",
+                        "geweest"});
+            table1.AddRow(new string[] {
+                        "2",
+                        "lopen",
+                        "liep",
+                        "gelopen"});
+            table1.AddRow(new string[] {
+                        "3",
+                        "eten",
+                        "at",
+                        "gegeten"});
+#line 15
+ testRunner.Given("there is a test with the following test items", ((string)(null)), table1, "Given ");
+#line 20
+ testRunner.And("I have chosen \'was\' as simple past for item \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 21
+ testRunner.And("I have chosen \'geweest\' as past participle for item \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.And("I have chosen \'liep\' as simple past for item \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 24
+ testRunner.And("I have chosen \'gelopen\' as past participle for item \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("I have chosen \'at\' as simple past for item \'3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+ testRunner.And("I have chosen \'gegeten\' as past participle for item \'3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 28
+ testRunner.When("the test is evaluated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 29
+ testRunner.Then("the test result should be \'ok\' on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore
