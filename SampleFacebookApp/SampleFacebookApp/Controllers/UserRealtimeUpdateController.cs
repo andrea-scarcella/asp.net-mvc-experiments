@@ -8,29 +8,29 @@ using Microsoft.AspNet.Mvc.Facebook.Realtime;
 
 namespace SampleFacebookApp.Controllers
 {
-	public class UserRealtimeUpdateController : FacebookRealtimeUpdateController
-	{
-		private readonly static string UserVerifyToken = ConfigurationManager.AppSettings["Facebook:VerifyToken:User"];
+    public class UserRealtimeUpdateController : FacebookRealtimeUpdateController
+    {
+        private readonly static string UserVerifyToken = ConfigurationManager.AppSettings["Facebook:VerifyToken:User"];
 
-		public override string VerifyToken
-		{
-			get
-			{
-				return UserVerifyToken;
-			}
-		}
+        public override string VerifyToken
+        {
+            get
+            {
+                return UserVerifyToken;
+            }
+        }
 
-		public override Task HandleUpdateAsync(ChangeNotification notification)
-		{
-			if (notification.Object == "user")
-			{
-				foreach (var entry in notification.Entry)
-				{
-					// Your logic to handle the update here
-				}
-			}
+        public override Task HandleUpdateAsync(ChangeNotification notification)
+        {
+            if (notification.Object == "user")
+            {
+                foreach (var entry in notification.Entry)
+                {
+                    // Your logic to handle the update here
+                }
+            }
 
-			throw new NotImplementedException();
-		}
-	}
+            throw new NotImplementedException();
+        }
+    }
 }
