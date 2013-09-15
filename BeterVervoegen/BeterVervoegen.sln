@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{333F1304-DD20-4934-B07E-7C5CB029EFF2}"
 	ProjectSection(SolutionItems) = preProject
 		BeterVervoegen.vsmdi = BeterVervoegen.vsmdi
@@ -16,7 +16,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeterVervoegen.DAL", "Beter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeterVervoegen.Test", "BeterVervoegen.Test\BeterVervoegen.Test.csproj", "{9C94672D-4689-4153-876F-7F7402097ADA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeterVervoegen.Specflow", "BeterVervoegen.Specflow\BeterVervoegen.Specflow.csproj", "{6CA63045-F8FA-4544-A701-CCE3628A50A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeterVervoegen.Specflow", "BeterVervoegen.Specflow\BeterVervoegen.Specflow.csproj", "{FCBF1EB5-5411-417D-B796-B92206BD7E49}"
 EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
@@ -43,10 +43,10 @@ Global
 		{9C94672D-4689-4153-876F-7F7402097ADA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9C94672D-4689-4153-876F-7F7402097ADA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9C94672D-4689-4153-876F-7F7402097ADA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6CA63045-F8FA-4544-A701-CCE3628A50A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6CA63045-F8FA-4544-A701-CCE3628A50A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6CA63045-F8FA-4544-A701-CCE3628A50A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6CA63045-F8FA-4544-A701-CCE3628A50A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCBF1EB5-5411-417D-B796-B92206BD7E49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCBF1EB5-5411-417D-B796-B92206BD7E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCBF1EB5-5411-417D-B796-B92206BD7E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCBF1EB5-5411-417D-B796-B92206BD7E49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
