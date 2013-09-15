@@ -5,9 +5,9 @@
 
 @mytag
 Scenario: evaluate the answer to a question
-	Given the infinitive is 'zijn'
+	Given the infinitive is 'zijn', the simple past is 'was' and the past participle is 'geweest'
 	And I have entered 'was' as simple past
 	And I have entered 'geweest' as past participle
-	When I press submit
+	When the question is evaluated
 	Then the result should be 'ok' on the screen
 

@@ -75,13 +75,14 @@ namespace BeterVervoegen.Specflow
 #line 7
 this.ScenarioSetup(scenarioInfo);
 #line 8
- testRunner.Given("the infinitive is \'zijn\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("the infinitive is \'zijn\', the simple past is \'was\' and the past participle is \'ge" +
+                    "weest\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
  testRunner.And("I have entered \'was\' as simple past", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 10
  testRunner.And("I have entered \'geweest\' as past participle", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 11
- testRunner.When("I press submit", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("the question is evaluated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
  testRunner.Then("the result should be \'ok\' on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
