@@ -10,6 +10,10 @@ namespace BeterVervoegen.BL
 		public string Infinitive { get; set; }
 		public string SimplePast { get; set; }
 		public string PastParticiple { get; set; }
+		public TestItem()
+		{
+
+		}
 		public TestItem(int ItemId, string Infinitive, string SimplePast, string PastParticiple)
 		{
 			// TODO: Complete member initialization

@@ -6,36 +6,45 @@ using System.Web.Mvc;
 using BeterVervoegen.BL;
 //using NSubstitute;
 using BeterVervoegen.DAL;
+using BeterVervoegen.Models;
 
 namespace BeterVervoegen.Controllers
 {
-    public class TaaltestController : Controller
-    {
-        //
-        // GET: /Taaltest/
+	public class TaaltestController : Controller
+	{
+		//
+		// GET: /Taaltest/
 
-        public ActionResult Index()
-        {
-            //IEnumerable<TestDeel> i = new List<TestDeel> { new TestDeel { ID = 0, tekst = "" } };
-            ITaaltestRepository r = new Class1();
-            var tt = r.get(DateTime.Now);
+		public ActionResult Index()
+		{
 
-            return View(tt.First());
-        }
-        [HttpPost]
-        public ActionResult Index(Taaltest taalTest)
-        {
-            if (ModelState.IsValid)
-            {
-                foreach (var item in taalTest.vragen)
-                {
-                    foreach (var item2 in item.antwoorden)
-                    {
-                        int u = 0;
-                    }
-                }
-            }
-            return View(taalTest);
-        }
-    }
+
+			TestVM t = new TestVM(new[] {
+				new TestItemVM { 
+					ItemId = 1, 
+					Infinitive = "zijn", 
+					
+					AnswerPastParticiple = "", AnswerSimplePast = "" },
+					new TestItemVM { 
+					ItemId = 2, 
+					Infinitive = "lopen", 
+					 
+					AnswerPastParticiple = "", AnswerSimplePast = "" }
+			}
+			);
+			return View(t);
+		}
+		[HttpPost]
+		public ActionResult Index(TestVM taalTest)
+		{
+			if (ModelState.IsValid)
+			{
+				foreach (var item in taalTest.Items)
+				{
+					int i = 0;
+				}
+			}
+			return View(taalTest);
+		}
+	}
 }

@@ -1,21 +1,29 @@
-﻿@model BeterVervoegen.BL.Taaltest
+﻿@model BeterVervoegen.Models.TestVM
 @{
-    ViewBag.Title = "Taaltest";
+	ViewBag.Title = "Taaltest";
 }
 @section Styles {
-    <link href="@Url.Content("~/Content/FormStyle.css")" rel="stylesheet" type="text/css" />
+	<link href="@Url.Content("~/Content/FormStyle.css")" rel="stylesheet" type="text/css" />
 }
-<h2>
-    Taaltest van vandaag</h2>
+<h2>Taaltest van vandaag</h2>
 @*http://stackoverflow.com/questions/12883869/grouping-radio-buttons-in-c-sharp-mvc*@
 <div class="test">
-    @using (Html.BeginForm())
-    {
-        for (int i = 0; i < Model.vragen.Count(); i++)
-        {
-        @Html.EditorFor(x => x.vragen[i], "TestDeel")
-        }
+	@using (Html.BeginForm())
+ {
+	 var ordered = Model.Items.OrderBy(x => x.ItemId).ToList();
+	 for (int i = 0; i < ordered.Count; i++)
+	 {
+		@Html.EditorFor(x => x.Items[i], "TestItemVM")
+@*<div class="testDeel">
+			@Html.HiddenFor(x => ordered[i].ItemId)
+			@Html.DisplayFor(x => ordered[i].Infinitive)
+			@Html.EditorFor(x => ordered[i].AnswerSimplePast)
+			@Html.EditorFor(x => ordered[i].AnswerPastParticiple)
+		</div>*@
+	 
+	 
+	 }
 
-        <input type="submit" />
-    }
+		<input type="submit" />
+ }
 </div>
