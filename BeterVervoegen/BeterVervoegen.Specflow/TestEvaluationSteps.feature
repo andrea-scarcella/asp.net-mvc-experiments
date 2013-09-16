@@ -9,7 +9,7 @@ Scenario: evaluate the answer to a question
 	And I have entered 'was' as simple past
 	And I have entered 'geweest' as past participle
 	When the question is evaluated
-	Then the result should be 'ok' on the screen
+	Then the result should be 'OK' on the screen
 
 Scenario: evaluate a test
 	Given there is a test with the following test items
@@ -26,5 +26,23 @@ Scenario: evaluate a test
 	And I have chosen 'at' as simple past for item '3'
 	And I have chosen 'gegeten' as past participle for item '3'
 	When the test is evaluated
-	Then the test result should be 'ok' on the screen
+	Then the test result should be 'OK' on the screen
+	 
+
+	 Scenario: evaluate a test with mistakes
+	Given there is a test with the following test items
+	| ItemID | Infinitive | SimplePast | PastParticiple |
+	| 1      | zijn       | was        | geweest        |
+	| 2      | lopen      | liep       | gelopen        |
+	| 3      | eten       | at         | gegeten        |
+	And I have chosen 'xxx' as simple past for item '1'
+	And I have chosen 'yyy' as past participle for item '1'
+
+	And I have chosen 'liep' as simple past for item '2'
+	And I have chosen 'gelopen' as past participle for item '2'
+
+	And I have chosen 'zzz' as simple past for item '3'
+	And I have chosen 'gegeten' as past participle for item '3'
+	When the test is evaluated
+	Then the test result should be 'KO' on the screen
 	 

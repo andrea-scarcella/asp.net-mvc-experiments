@@ -43,6 +43,8 @@
     <Compile Include="ITestDeelRepository.cs" />
     <Compile Include="ITaaltestRepository.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Test.cs" />
+    <Compile Include="TestItem.cs" />
     <Compile Include="TestOnderdeel.cs" />
     <Compile Include="Taaltest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

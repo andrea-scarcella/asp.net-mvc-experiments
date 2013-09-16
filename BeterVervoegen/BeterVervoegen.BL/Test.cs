@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BeterVervoegen.Specflow
+namespace BeterVervoegen.BL
 {
-	class Test
+	public class Test
 	{
 
 
@@ -23,7 +23,7 @@ namespace BeterVervoegen.Specflow
 			return Items.Where(x => x.ItemId == p1).FirstOrDefault();
 		}
 
-		internal void Evaluate()
+		public void Evaluate()
 		{
 			foreach (TestItem item in Items)
 			{
@@ -35,7 +35,7 @@ namespace BeterVervoegen.Specflow
 			correct = okCount == count;
 		}
 
-		internal string Result()
+		public string Result()
 		{
 
 			return correct ? "OK" : "KO";

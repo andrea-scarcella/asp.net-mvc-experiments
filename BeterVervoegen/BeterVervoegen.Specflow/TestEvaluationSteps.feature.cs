@@ -84,7 +84,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 11
  testRunner.When("the question is evaluated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 12
- testRunner.Then("the result should be \'ok\' on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the result should be \'OK\' on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -134,7 +134,57 @@ this.ScenarioSetup(scenarioInfo);
 #line 28
  testRunner.When("the test is evaluated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 29
- testRunner.Then("the test result should be \'ok\' on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("the test result should be \'OK\' on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("evaluate a test with mistakes")]
+        public virtual void EvaluateATestWithMistakes()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("evaluate a test with mistakes", ((string[])(null)));
+#line 32
+  this.ScenarioSetup(scenarioInfo);
+#line hidden
+            TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                        "ItemID",
+                        "Infinitive",
+                        "SimplePast",
+                        "PastParticiple"});
+            table2.AddRow(new string[] {
+                        "1",
+                        "zijn",
+                        "was",
+                        "geweest"});
+            table2.AddRow(new string[] {
+                        "2",
+                        "lopen",
+                        "liep",
+                        "gelopen"});
+            table2.AddRow(new string[] {
+                        "3",
+                        "eten",
+                        "at",
+                        "gegeten"});
+#line 33
+ testRunner.Given("there is a test with the following test items", ((string)(null)), table2, "Given ");
+#line 38
+ testRunner.And("I have chosen \'xxx\' as simple past for item \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+ testRunner.And("I have chosen \'yyy\' as past participle for item \'1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 41
+ testRunner.And("I have chosen \'liep\' as simple past for item \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.And("I have chosen \'gelopen\' as past participle for item \'2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
+ testRunner.And("I have chosen \'zzz\' as simple past for item \'3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
+ testRunner.And("I have chosen \'gegeten\' as past participle for item \'3\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+ testRunner.When("the test is evaluated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 47
+ testRunner.Then("the test result should be \'KO\' on the screen", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

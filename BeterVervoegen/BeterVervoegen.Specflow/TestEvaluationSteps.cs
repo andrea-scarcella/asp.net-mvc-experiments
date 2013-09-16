@@ -1,4 +1,5 @@
 ﻿using System;
+using BeterVervoegen.BL;
 using NUnit.Framework;
 using TechTalk.SpecFlow;
 using TechTalk.SpecFlow.Assist;
@@ -94,7 +95,7 @@ namespace BeterVervoegen.Specflow
 		{
 			var test = ScenarioContext.Current.Get<Test>(testKey);
 
-			Assert.AreEqual("OK", test.Result());
+			Assert.AreEqual(p0, test.Result());
 		}
 
 		#endregion

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BeterVervoegen.Specflow
+namespace BeterVervoegen.BL
 {
 	public class TestItem
 	{
@@ -30,7 +30,7 @@ namespace BeterVervoegen.Specflow
 
 		public string AnswerPastParticiple { get; set; }
 
-		internal void Evaluate()
+		public void Evaluate()
 		{
 			correct = SimplePast.Equals(AnswerSimplePast, StringComparison.InvariantCultureIgnoreCase) && PastParticiple.Equals(AnswerPastParticiple, StringComparison.InvariantCultureIgnoreCase);
 		}
