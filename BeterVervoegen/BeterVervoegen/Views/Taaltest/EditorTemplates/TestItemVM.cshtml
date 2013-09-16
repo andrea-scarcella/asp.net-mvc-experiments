@@ -2,6 +2,8 @@
 <div class="testDeel">
 	@Html.HiddenFor(model => model.ItemId)
 	<h3>@Html.LabelFor(model => model.Infinitive) : @Html.DisplayFor(model => model.Infinitive)</h3>
+	
+	@Html.HiddenFor(model => model.Infinitive)
 	<div class="testOnderDeel">
 		@Html.LabelFor(model => model.AnswerSimplePast)
 		@Html.EditorFor(model => model.AnswerSimplePast)
