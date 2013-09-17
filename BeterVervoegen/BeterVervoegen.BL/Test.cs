@@ -43,5 +43,17 @@ namespace BeterVervoegen.BL
 		}
 
 		private bool correct { get; set; }
+
+		public decimal Score()
+		{
+			decimal okCount = Items.Sum(x => x.Score);
+
+			decimal maxScore = Items.Sum(x => x.MaxScore());
+			decimal outp = 0;
+			outp = 100.0m * okCount / maxScore;
+			outp = Math.Truncate(outp);
+			return outp;
+			//throw new NotImplementedException();
+		}
 	}
 }

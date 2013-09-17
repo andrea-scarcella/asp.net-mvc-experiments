@@ -100,6 +100,14 @@ namespace BeterVervoegen.Specflow
 
 		#endregion
 
+		[Then(@"the test score should be '(.*)'")]
+		public void ThenTheTestScoreShouldBe(Decimal p0)
+		{
+			var test = ScenarioContext.Current.Get<Test>(testKey);
+			Assert.AreEqual(p0, test.Score());
+		}
+
+
 		public string testKey = "testKey";
 	}
 }

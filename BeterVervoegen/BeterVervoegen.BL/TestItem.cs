@@ -49,5 +49,30 @@ namespace BeterVervoegen.BL
 		}
 
 		public int ItemId { get; set; }
+
+		public decimal Score
+		{
+			get
+			{
+				_score = 0;
+				_score += SimplePast.Equals(AnswerSimplePast, StringComparison.InvariantCultureIgnoreCase) ? 1 : 0;
+				_score += PastParticiple.Equals(AnswerPastParticiple, StringComparison.InvariantCultureIgnoreCase) ? 1 : 0;
+				//_score = Math.Truncate(100 * (_score / 2m));
+				return _score;
+			}
+			private set
+			{
+				_score = value;
+			}
+		}
+
+
+
+		private decimal _score { get; set; }
+
+		public decimal MaxScore()
+		{
+			return 2m;
+		}
 	}
 }
