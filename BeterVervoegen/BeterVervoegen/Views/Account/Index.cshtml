@@ -1,0 +1,20 @@
+﻿@model BeterVervoegen.Models.LoginVm
+@{
+	ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+	<div>
+		@Html.LabelFor(m => m.Username)
+		@Html.EditorFor(m => m.Username)
+		@Html.ValidationMessageFor(m => m.Username)
+	</div>
+	<div>
+		@Html.LabelFor(m => m.Password)
+		@Html.EditorFor(m => m.Password)
+		@Html.ValidationMessageFor(m => m.Password)
+	</div>
+	<p><input type="submit" value="Login"/></p>
+}

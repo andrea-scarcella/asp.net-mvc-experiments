@@ -15,7 +15,6 @@ namespace BeterVervoegen.Controllers
 	{
 		//
 		// GET: /Taaltest/
-
 		public ActionResult Index()
 		{
 
@@ -34,19 +33,7 @@ namespace BeterVervoegen.Controllers
 			TestVM dto = Mapper.Map<TestVM>(t0);
 
 
-			//TestVM t = new TestVM(new[] {
-			//	new TestItemVM { 
-			//		ItemId = 1, 
-			//		Infinitive = "zijn", 
-
-			//		AnswerPastParticiple = "", AnswerSimplePast = "" },
-			//		new TestItemVM { 
-			//		ItemId = 2, 
-			//		Infinitive = "lopen", 
-
-			//		AnswerPastParticiple = "", AnswerSimplePast = "" }
-			//}
-			//);
+		
 			return View(dto);
 		}
 		[HttpPost]

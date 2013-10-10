@@ -55,6 +55,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestEvaluationSteps.feature</DependentUpon>
     </Compile>
+    <Compile Include="TestTemplateManagement.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestTemplateManagement.feature</DependentUpon>
+    </Compile>
+    <Compile Include="TestTemplateManagementSteps.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
@@ -64,6 +70,10 @@
     <None Include="TestEvaluationSteps.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>TestEvaluationSteps.feature.cs</LastGenOutput>
+    </None>
+    <None Include="TestTemplateManagement.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>TestTemplateManagement.feature.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
