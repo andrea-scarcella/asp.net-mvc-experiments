@@ -329,7 +329,7 @@
     <None Include="Scripts\jquery-2.0.2.min.map" />
     <Content Include="Views\TaaltestTemplate\Index.cshtml" />
     <Content Include="Views\TaaltestTemplate\Edit.cshtml" />
-    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\LogOn.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,12 +8,12 @@ namespace BeterVervoegen.Controllers
 		//
 		// GET: /Account/
 		[AllowAnonymous]
-		public ActionResult Index()
+		public ActionResult LogOn()
 		{
 			return View();
 		}
 		[HttpPost]
-		public ActionResult Index(LoginVm loginData)
+		public ActionResult LogOn(LoginVm loginData)
 		{
 			if (ModelState.IsValid)
 			{
