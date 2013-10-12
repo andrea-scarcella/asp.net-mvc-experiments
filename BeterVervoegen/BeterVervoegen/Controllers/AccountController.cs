@@ -22,5 +22,9 @@ namespace BeterVervoegen.Controllers
 			return View(loginData);
 		}
 
+		public ActionResult SignUp()
+		{
+			return View();
+		}
 	}
 }
