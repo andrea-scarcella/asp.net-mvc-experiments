@@ -25,6 +25,14 @@ namespace BeterVervoegen.Controllers
 			return View(loginData);
 		}
 
+
+		public ActionResult LogOut()
+		{
+			FormsAuthentication.SignOut();
+			return View();
+			//return RedirectToAction("Index", "Home");
+		}
+
 		public ActionResult SignUp()
 		{
 			return View();

@@ -148,6 +148,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\TaaltestController.cs" />
     <Compile Include="Controllers\TaaltestTemplateController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -300,6 +301,8 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_UserInfo.cshtml" />
+    <Content Include="Views\User\UserInfo.cshtml" />
+    <Content Include="Views\Account\LogOut.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
