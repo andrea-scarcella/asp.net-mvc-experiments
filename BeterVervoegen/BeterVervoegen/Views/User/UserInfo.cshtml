@@ -1,0 +1,11 @@
+﻿@model BeterVervoegen.Models.LoginVm
+@{
+	if (Model != null)
+	{
+	<p>Welkom @Html.DisplayFor(x => x.Username)! - @Html.ActionLink("Uitloggen", "LogOut", "Account")</p>
+	}
+	else
+	{
+	<p>U bent niet ingelogd.</p>
+	}
+}
