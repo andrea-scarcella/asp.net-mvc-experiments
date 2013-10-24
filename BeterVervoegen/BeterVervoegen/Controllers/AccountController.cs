@@ -15,16 +15,12 @@ namespace BeterVervoegen.Controllers
 		}
 		[HttpPost]
 		[AllowAnonymous]
-		public ActionResult LogOn(LoginVm loginData)
+		public ActionResult LogOn(LoginVm loginData, string returnUrl)
 		{
 			if (ModelState.IsValid)
 			{
-				//var t = System.Threading.Thread;
-
-				var p = System.Threading.Thread.CurrentPrincipal;
-
 				FormsAuthentication.SetAuthCookie(loginData.Username, false);
-				
+				return RedirectToLocal(returnUrl);
 			}
 			return View(loginData);
 		}
@@ -32,6 +28,17 @@ namespace BeterVervoegen.Controllers
 		public ActionResult SignUp()
 		{
 			return View();
+		}
+		private ActionResult RedirectToLocal(string returnUrl)
+		{
+			if (Url.IsLocalUrl(returnUrl))
+			{
+				return Redirect(returnUrl);
+			}
+			else
+			{
+				return RedirectToAction("Index", "Home");
+			}
 		}
 	}
 }

@@ -299,6 +299,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_UserInfo.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
