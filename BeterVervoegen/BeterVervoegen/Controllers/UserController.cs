@@ -10,6 +10,7 @@ namespace BeterVervoegen.Controllers
 	public class UserController : Controller
 	{
 		[ChildActionOnly]
+		[AllowAnonymous]
 		public PartialViewResult UserInfo()
 		{
 			//  var userInfo = System.Threading.Thread.CurrentPrincipal.Identity.
@@ -19,7 +20,7 @@ namespace BeterVervoegen.Controllers
 			if (u.Identity.IsAuthenticated)
 			{
 				l0 = new LoginVm();
-				l0.Username = u.Identity.Name; 
+				l0.Username = u.Identity.Name;
 			}
 			return PartialView(l0);
 		}

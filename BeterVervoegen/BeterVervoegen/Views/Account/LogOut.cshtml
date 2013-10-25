@@ -1,6 +1,8 @@
-﻿@{
+﻿@using BeterVervoegen.Helpers
+@{
     ViewBag.Title = "";
 }
 
 <h2>U bent uitgelogd!</h2>
-<META HTTP-EQUIV="Refresh" CONTENT="5;URL=@(Url.Action("Index", "Home"))">
+@*<META HTTP-EQUIV="Refresh" CONTENT="5;URL=@(Url.Action("Index", "Home"))">*@
+@Html.TimedRedirectToUrl(3, "Index", "Home")

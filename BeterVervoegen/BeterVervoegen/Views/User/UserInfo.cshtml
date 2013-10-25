@@ -1,4 +1,5 @@
 ﻿@model BeterVervoegen.Models.LoginVm
+@using BeterVervoegen.Helpers
 @{
 	if (Model != null)
 	{
@@ -9,3 +10,6 @@
 	<p>U bent niet ingelogd.</p>
 	}
 }
+@*<pre>
+	@Html.TimedRedirectToUrl(3000, "Index", "Home")
+</pre>*@
