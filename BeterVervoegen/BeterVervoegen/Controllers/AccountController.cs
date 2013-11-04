@@ -25,12 +25,14 @@ namespace BeterVervoegen.Controllers
 			return View(loginData);
 		}
 
-
+		//[AllowAnonymous]
 		public ActionResult LogOut()
 		{
 			FormsAuthentication.SignOut();
-			return View();
-			//return RedirectToAction("Index", "Home");
+			TempData["logoutmessage"] = "U bent uitgelogd!";
+
+			//return View();
+			return RedirectToAction("Index", "Home");
 		}
 
 		public ActionResult SignUp()
