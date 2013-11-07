@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FEAC8B
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeterVervoegen.Providers", "BeterVervoegen.Providers\BeterVervoegen.Providers.csproj", "{714B9391-0FB6-4E12-A7E8-9CC8AF8FE794}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = BeterVervoegen.vsmdi
@@ -52,6 +54,10 @@ Global
 		{FCBF1EB5-5411-417D-B796-B92206BD7E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCBF1EB5-5411-417D-B796-B92206BD7E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCBF1EB5-5411-417D-B796-B92206BD7E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{714B9391-0FB6-4E12-A7E8-9CC8AF8FE794}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{714B9391-0FB6-4E12-A7E8-9CC8AF8FE794}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{714B9391-0FB6-4E12-A7E8-9CC8AF8FE794}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{714B9391-0FB6-4E12-A7E8-9CC8AF8FE794}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
