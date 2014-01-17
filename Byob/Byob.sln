@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byob.Domain.UnitTests", "By
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byob.Dal", "Byob.Dal\Byob.Dal.csproj", "{F2564C21-EEE8-448D-9FB7-6FD0D92D55A8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byob.Web", "Byob.Web\Byob.Web.csproj", "{8755C14E-F818-44D3-B782-44A7E571007F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{F2564C21-EEE8-448D-9FB7-6FD0D92D55A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2564C21-EEE8-448D-9FB7-6FD0D92D55A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2564C21-EEE8-448D-9FB7-6FD0D92D55A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8755C14E-F818-44D3-B782-44A7E571007F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8755C14E-F818-44D3-B782-44A7E571007F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8755C14E-F818-44D3-B782-44A7E571007F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8755C14E-F818-44D3-B782-44A7E571007F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

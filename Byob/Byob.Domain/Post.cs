@@ -11,12 +11,12 @@ namespace Byob.Domain
 
         public Post()
         {
-
+            permalink = Guid.NewGuid().ToString();
         }
         public Post(Post p)
         {
             // TODO: Complete member initialization
-            
+            permalink = Guid.NewGuid().ToString();
         }
         public string title { get; set; }
         public string author { get; set; }
@@ -31,5 +31,7 @@ namespace Byob.Domain
         {
             return null;
         }
+
+        public object Id { get; set; }
     }
 }
