@@ -13,6 +13,7 @@ namespace Byob.Domain
         public Post()
         {
             permalink = Guid.NewGuid().ToString();
+            comments = new List<Comment>();
         }
 
         public string title { get; set; }
@@ -22,8 +23,10 @@ namespace Byob.Domain
         public List<string> tags { get; set; }
         public List<Comment> comments { get; set; }
         public DateTime date { get; set; }
+        public string email { get; set; }
 
+        public Guid Id { get; set; }
 
-        public Guid  Id { get; set; }
+        public string preview { get; set; }
     }
 }

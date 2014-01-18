@@ -3,10 +3,12 @@ using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -50,6 +52,15 @@ namespace Byob.Dal
         {
             return collection.FindOne(Query<Post>.EQ<string>(p0 => p0.permalink, expectedPermalink));
 
+        }
+
+
+        public IEnumerable<Post> Find(Expression<Func<Post, bool>> predicate)
+        {
+
+
+            return collection.AsQueryable<Post>().Where(predicate);
+            //throw new NotImplementedException();
         }
     }
 }

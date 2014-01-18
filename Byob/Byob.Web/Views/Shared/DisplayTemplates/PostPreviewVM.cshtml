@@ -1,0 +1,27 @@
+﻿@model Byob.Web.Models.PostPreviewVM
+
+<h2><a href="/post/@Model.permalink">Post Title</a></h2>
+
+Posted @Html.DisplayFor(m=>m.date) <i>by AUTHOR</i><br />
+Comments:
+
+<a href="/post/Model.permalink">@Model.commentCount</a>
+<hr>
+@Model.preview
+<p></p>
+
+<p>
+    <em>Filed Under</em>:
+    @if (Model.tags.FirstOrDefault() != null)
+    {
+        <a href="/tag/@Model.tags.First()">@Model.tags.First()</a>
+    }
+
+    @foreach (var t in Model.tags.Skip(1))
+    {
+        <text>,</text> <a href="/tag/@t">@t</a>
+    }
+
+</p>
+
+<p></p>

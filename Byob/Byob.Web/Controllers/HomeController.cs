@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Byob.Dal;
+using Byob.Domain;
+using Byob.Domain.Services;
+using Byob.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +14,18 @@ namespace Byob.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            IRepository<Post> rp = new PostRepository();
+            IPostService p = new PostService(rp);
+            IEnumerable<PostPreviewVM> posts = p.getPosts().ToList()
+               .Select(el => new PostPreviewVM
+               {
+                   date = el.date,
+                   tags = new List<string>(el.tags),
+                   commentCount = el.comments.Count(),
+                   permalink = el.permalink,
+                   preview = el.preview
+               });
+            return View(posts);
         }
 
         public ActionResult About()

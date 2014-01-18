@@ -1,74 +1,112 @@
-﻿using NUnit.Framework;
+﻿using Byob.Dal;
+using Byob.Domain.Services;
+using FizzWare.NBuilder;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using Byob.Domain;
-using Byob.Dal;
+using Telerik.JustMock;
 
-using MongoDB.Driver;
-using MongoDB.Driver.Builders;
 namespace Byob.Domain.UnitTests
 {
     public class Class1
     {
-        private MongoClient client;
-        private MongoServer server;
-        private MongoDatabase database;
-        private MongoCollection<Post> collection;
+        private IPostService ps;
+        private IRepository<Post> _pr;
+        private static RandomGenerator generator;
 
-        [TestFixtureSetUp]
+        [SetUp]
         public void Setup()
         {
-            r = new PostRepository();
+            generator = new RandomGenerator();
+            _pr = Mock.Create<IRepository<Post>>();
+            ps = new PostService(_pr);
 
-            var connectionString = "mongodb://localhost";
-            client = new MongoClient(connectionString);
-            server = client.GetServer();
-            database = server.GetDatabase("Byob");
-            collection = database.GetCollection<Post>("posts");
-            collection.Drop();
+
+        }
+
+        private static Post getValidPost()
+        {
+            return Builder<Post>
+                .CreateNew()
+                .With(x => x.title = "t" + generator.Phrase(10).Replace(" ", "1"))
+                .With(x => x.body = generator.Phrase(100))
+                .Build();
         }
         [Test]
-        public void CanAddPost()
+        public void When_a_user_attempts_to_post_a_valid_post_it_should_be_added()
         {
             //Arrange
-            Post p = new Post();
+            Post p = getValidPost();
+
+            Mock.Arrange(() => _pr.Save(Arg.IsAny<Post>())).OccursOnce();
             //Act
-
-            var retrieved = r.Save(p);
+            ps.AddPost(p);
             //Assert
-            Assert.IsNotNull(retrieved);
-
-            Assert.AreNotEqual(Guid.Empty, retrieved.Id);
+            Mock.Assert(_pr);
         }
 
-
         [Test]
-        public void CanRetrieveSavedPost()
+        [ExpectedException(typeof(ArgumentException))]
+        public void When_a_user_attempts_to_post_without_a_title_throw_ArgumentException()
         {
-            //Arrangee
+            //Arrange
+            Post p = getValidPost();
+            p.title = "";
             //Act
-            Post p = new Post();
-            var expectedPermalink = p.permalink;
-            r.Save(p);
-            var q = r.FindByPermalink(expectedPermalink);
-            var actualPermalink = q.permalink;
-            //Assert
-            Assert.AreEqual(expectedPermalink, actualPermalink);
-            //same entity yet two instances??
+            ps.AddPost(p);
+            //Assert - see exception
         }
         [Test]
-        public void CanAddTwoPosts() {
-            Post p0 = new Post();
-            Post p1 = new Post();
-            var s0 = r.Save(p0);
-            var s1 = r.Save(p1);
-            Assert.AreNotEqual(Guid.Empty, s0.Id);
-            Assert.AreNotEqual(Guid.Empty, s1.Id);
-            Assert.AreNotEqual(s0.Id, s1.Id);
+        public void When_a_valid_post_is_added_a_50_line_preview_is_generated()
+        {
+            //Arrange
+            Post p = getValidPost();
+            //Act
+            ps.AddPost(p);
+            //Assert
+            Assert.AreEqual(p.preview, p.body.Substring(0, 50));
         }
-        public IRepository<Post> r { get; set; }
+
+        [Test]
+        public void When_a_valid_post_is_added_a_preview_is_generated_that_is_at_most_50_chars()
+        {
+            //Arrange
+            Post p = getValidPost();
+            p.body = p.body.Substring(0, 17);
+            //Act
+            ps.AddPost(p);
+            //Assert
+            Assert.AreEqual(p.preview, p.body);
+        }
+        [Test]
+        public void CanReturnAllPosts()
+        {
+            //Arrange
+            var p0 = getValidPost();
+            var p1 = getValidPost();
+            IEnumerable<Post> pp = new[] { p0, p1 };
+            //Code smell 
+            //repo implementation details do not belong here
+            Mock.Arrange(() => _pr.Save(Arg.Is<Post>(p0))).OccursOnce();
+            Mock.Arrange(() => _pr.Save(Arg.Is<Post>(p1))).OccursOnce();
+            Mock.Arrange(() => _pr.Find(
+                Arg.Matches<Expression<Func<Post, bool>>>(p=>true)
+                )
+                ).Returns(pp)
+                .OccursOnce();
+            //Find
+            ps.AddPost(p0);
+            ps.AddPost(p1);
+            //Act
+            IEnumerable<Post> posts = ps.getPosts().Take(2);
+            //Assert
+            Mock.Assert(_pr);
+            Assert.AreEqual(2, posts.Count());
+        }
+
     }
 }
