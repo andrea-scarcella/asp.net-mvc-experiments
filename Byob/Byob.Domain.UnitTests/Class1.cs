@@ -40,7 +40,8 @@ namespace Byob.Domain.UnitTests
             var retrieved = r.Save(p);
             //Assert
             Assert.IsNotNull(retrieved);
-            Assert.IsNotNull(retrieved.Id);
+
+            Assert.AreNotEqual(Guid.Empty, retrieved.Id);
         }
 
 
@@ -58,7 +59,16 @@ namespace Byob.Domain.UnitTests
             Assert.AreEqual(expectedPermalink, actualPermalink);
             //same entity yet two instances??
         }
-
+        [Test]
+        public void CanAddTwoPosts() {
+            Post p0 = new Post();
+            Post p1 = new Post();
+            var s0 = r.Save(p0);
+            var s1 = r.Save(p1);
+            Assert.AreNotEqual(Guid.Empty, s0.Id);
+            Assert.AreNotEqual(Guid.Empty, s1.Id);
+            Assert.AreNotEqual(s0.Id, s1.Id);
+        }
         public IRepository<Post> r { get; set; }
     }
 }

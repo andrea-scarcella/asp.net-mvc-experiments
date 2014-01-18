@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,7 @@ namespace Byob.Domain
         {
             permalink = Guid.NewGuid().ToString();
         }
-        public Post(Post p)
-        {
-            // TODO: Complete member initialization
-            permalink = Guid.NewGuid().ToString();
-        }
+
         public string title { get; set; }
         public string author { get; set; }
         public string body { get; set; }
@@ -27,11 +24,6 @@ namespace Byob.Domain
         public DateTime date { get; set; }
 
 
-        public string  Save()
-        {
-            return null;
-        }
-
-        public object Id { get; set; }
+        public Guid  Id { get; set; }
     }
 }

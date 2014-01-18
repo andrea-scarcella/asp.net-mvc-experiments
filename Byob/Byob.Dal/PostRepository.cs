@@ -1,4 +1,7 @@
 ﻿using Byob.Domain;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization;
+using MongoDB.Bson.Serialization.IdGenerators;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System;
@@ -22,13 +25,22 @@ namespace Byob.Dal
             server = client.GetServer();
             database = server.GetDatabase("Byob");
             collection = database.GetCollection<Post>("posts");
+            BsonClassMap.RegisterClassMap<Post>(cm =>
+            {
+                cm.AutoMap();
+                cm.SetIdMember(
+                    cm.GetMemberMap(p => p.Id)
+                    //.SetIgnoreIfDefault(true)
+                    //.SetRepresentation(BsonType.String)
+                    );
+            });
+         
+
         }
         public Post Save(Post p)
         {
-            var wc = collection.Update(
-                Query<Post>.EQ<string>(p0 => p0.permalink, p.permalink),
-                Update<Post>.Replace(p),
-                UpdateFlags.Upsert);
+           
+            collection.Save<Post>(p);
             return p;
         }
 
@@ -36,7 +48,8 @@ namespace Byob.Dal
 
         public Post FindByPermalink(string expectedPermalink)
         {
-            return new Post();
+            return collection.FindOne(Query<Post>.EQ<string>(p0 => p0.permalink, expectedPermalink));
+
         }
     }
 }
