@@ -27,21 +27,24 @@ namespace Byob.Dal
             server = client.GetServer();
             database = server.GetDatabase("Byob");
             collection = database.GetCollection<Post>("posts");
-            BsonClassMap.RegisterClassMap<Post>(cm =>
+            if (!BsonClassMap.IsClassMapRegistered(typeof(Post)))
             {
-                cm.AutoMap();
-                cm.SetIdMember(
-                    cm.GetMemberMap(p => p.Id)
-                    //.SetIgnoreIfDefault(true)
-                    //.SetRepresentation(BsonType.String)
-                    );
-            });
-         
+                BsonClassMap.RegisterClassMap<Post>(cm =>
+                  {
+                      cm.AutoMap();
+                      cm.SetIdMember(
+                          cm.GetMemberMap(p => p.Id)
+                          //.SetIgnoreIfDefault(true)
+                          //.SetRepresentation(BsonType.String)
+                          );
+                  });
+            }
+
 
         }
         public Post Save(Post p)
         {
-           
+
             collection.Save<Post>(p);
             return p;
         }

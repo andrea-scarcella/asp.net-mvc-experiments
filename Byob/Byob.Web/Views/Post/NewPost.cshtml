@@ -1,0 +1,45 @@
+﻿@model Byob.Web.Models.PostVM
+@{
+    ViewBag.Title = "NewPost";
+}
+
+<h2>NewPost</h2>
+
+
+<!doctype html>
+<html
+<head>
+    <title>
+        Blog Post
+    </title>
+</head>
+<body>
+    Welcome test        <a href="/logout">Logout</a> |
+    <a href="/">Blog Home</a><br><br>
+
+    <h2>AAA</h2>
+    Posted Sunday, January 26 2014 at 04:03PM<i> By test</i><br>
+    <hr>
+    AAA
+    <p>
+        <em>Filed Under</em>:
+    <p>
+        Comments:
+        <ul>
+            <h3>Add a comment</h3>
+            <form action="/newcomment" method="POST">
+                <input type="hidden" name="permalink" , value="AAA">
+
+                <b>Name</b> (required)<br>
+                <input type="text" name="commentName" size="60" value=""><br>
+                <b>Email</b> (optional)<br>
+                <input type="text" name="commentEmail" size="60" value=""><br>
+                <b>Comment</b><br>
+                <textarea name="commentBody" cols="60" rows="10"></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </ul>
+</body>
+</html>
+
+
