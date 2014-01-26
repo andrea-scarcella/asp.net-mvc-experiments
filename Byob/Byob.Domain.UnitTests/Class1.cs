@@ -60,6 +60,18 @@ namespace Byob.Domain.UnitTests
             ps.AddPost(p);
             //Assert - see exception
         }
+
+        [Test]
+        [ExpectedException(typeof(ArgumentException))]
+        public void When_a_user_attempts_to_post_a_null_post_throw_ArgumentException()
+        {
+            //Arrange
+            Post p = null;
+            //Act
+            ps.AddPost(p);
+            //Assert - see exception
+        }
+
         [Test]
         public void When_a_valid_post_is_added_a_50_line_preview_is_generated()
         {

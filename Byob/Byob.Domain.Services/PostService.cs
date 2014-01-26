@@ -23,6 +23,10 @@ namespace Byob.Domain.Services
         //}
         public void AddPost(Post p)
         {
+            if (p == null)
+            {
+                 throw new ArgumentException("Undefined posts not allowed");
+            }
             if (string.IsNullOrEmpty(p.title)
                 || string.IsNullOrWhiteSpace(p.title))
             {

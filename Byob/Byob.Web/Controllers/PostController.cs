@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Byob.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,13 @@ namespace Byob.Web.Controllers
 {
     public class PostController : Controller
     {
+        private Domain.IPostService postSvc;
+
+        public PostController(Domain.IPostService postSvc)
+        {
+            // TODO: Complete member initialization
+            this.postSvc = postSvc;
+        }
         //
         // GET: /Post/
         public ActionResult Index()
@@ -16,9 +24,13 @@ namespace Byob.Web.Controllers
         }
 
         [HttpPost]
-        public ViewResult NewPost(Models.PostVM postVM)
+        public ActionResult NewPost(PostVM postVM)
         {
-            throw new NotImplementedException();
+            if (!ModelState.IsValid)
+            {
+                return View("NewPost");
+            }
+            return View();
         }
     }
 }
