@@ -15,6 +15,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byob.Domain.Services", "Byo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byob.Web.UnitTests", "Byob.Web.UnitTests\Byob.Web.UnitTests.csproj", "{6D450567-1E02-4E14-8E64-51608374C575}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byob.Domain.Services.ACL", "Byob.Domain.Services.ACL\Byob.Domain.Services.ACL.csproj", "{EC273C80-FFAE-49DD-AF86-66FD507018B5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Byob.Domain.Services.ACL.UnitTests", "Byob.Domain.Services.ACL.UnitTests\Byob.Domain.Services.ACL.UnitTests.csproj", "{ADEDEF91-917C-489A-A7C7-BB66596A7EA2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{6D450567-1E02-4E14-8E64-51608374C575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6D450567-1E02-4E14-8E64-51608374C575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6D450567-1E02-4E14-8E64-51608374C575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC273C80-FFAE-49DD-AF86-66FD507018B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC273C80-FFAE-49DD-AF86-66FD507018B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC273C80-FFAE-49DD-AF86-66FD507018B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC273C80-FFAE-49DD-AF86-66FD507018B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADEDEF91-917C-489A-A7C7-BB66596A7EA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADEDEF91-917C-489A-A7C7-BB66596A7EA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADEDEF91-917C-489A-A7C7-BB66596A7EA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADEDEF91-917C-489A-A7C7-BB66596A7EA2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

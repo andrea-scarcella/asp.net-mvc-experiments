@@ -12,7 +12,7 @@ namespace Byob.Web.Controllers
 {
     public class HomeController : Controller
     {
-        private Domain.IPostService postSvc;
+        private IPostService postSvc;
 
         public HomeController(IPostService svc)
         {

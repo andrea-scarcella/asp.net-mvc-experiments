@@ -9,9 +9,6 @@ namespace Byob.Domain
     {
         void AddPost(Post p);
 
-
-
-
         IEnumerable<Post> getPosts();
     }
 }

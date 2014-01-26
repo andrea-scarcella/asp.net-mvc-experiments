@@ -1,4 +1,5 @@
-﻿using Byob.Web.Models;
+﻿using Byob.Domain;
+using Byob.Web.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +10,9 @@ namespace Byob.Web.Controllers
 {
     public class PostController : Controller
     {
-        private Domain.IPostService postSvc;
+        private IPostService postSvc;
 
-        public PostController(Domain.IPostService postSvc)
+        public PostController(IPostService postSvc)
         {
             // TODO: Complete member initialization
             this.postSvc = postSvc;

@@ -16,11 +16,6 @@ namespace Byob.Domain.Services
             this._pr = _pr;
         }
 
-        //public PostService()
-        //{
-        //    // TODO: remove this depedency on a concrete implementation!
-        //    this._pr = new PostRepository();
-        //}
         public void AddPost(Post p)
         {
             if (p == null)
