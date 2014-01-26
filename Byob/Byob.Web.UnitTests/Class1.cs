@@ -83,7 +83,8 @@ namespace Byob.Web.UnitTests
           
         }
         [Test]
-        public void WEB_post_body_is_required() {
+        public void WEB_post_body_is_required()
+        {
             //Arrange
             var postVM = GetValidPostVM();
             postVM.body = "";
@@ -92,6 +93,20 @@ namespace Byob.Web.UnitTests
             //Assert
             Assert.Greater(errors.Count, 0);
             Assert.That(errors[0].ErrorMessage, Is.EqualTo("The body field is required."));
+
+        }
+
+        [Test]
+        public void WEB_post_title_is_required()
+        {
+            //Arrange
+            var postVM = GetValidPostVM();
+            postVM.title = "";
+            //Act
+            var errors = GetValidationErrors(postVM);
+            //Assert
+            Assert.Greater(errors.Count, 0);
+            Assert.That(errors[0].ErrorMessage, Is.EqualTo("The title field is required."));
 
         }
 
