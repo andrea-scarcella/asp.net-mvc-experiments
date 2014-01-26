@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@Ajax.ActionLink("Simple Ajax action", "simpleAjaxAction", new AjaxOptions()
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "foo"
+})
+
+<div id="foo">
+    toon de uitslag hier
+</div>
