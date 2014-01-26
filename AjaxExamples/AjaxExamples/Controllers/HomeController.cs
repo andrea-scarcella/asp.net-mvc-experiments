@@ -12,6 +12,11 @@ namespace AjaxExamples.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public PartialViewResult Index(dynamic dummy) {
+            ViewBag.Foo = Guid.NewGuid().ToString()+":Index";
+            return PartialView("_simpleAjaxActionPartialView");
+        }
         public PartialViewResult simpleAjaxAction()
         {
             ViewBag.Foo = Guid.NewGuid().ToString();

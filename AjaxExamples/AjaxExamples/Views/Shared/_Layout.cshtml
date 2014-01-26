@@ -45,5 +45,25 @@
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
     <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.js")" type="text/javascript"></script>
+    <script>
+
+        $(function () {
+            $('form').submit(function () {
+                debugger;
+                console.log(this.method);
+                if ($(this).valid()) {
+                    $.ajax({
+                        url: this.action,
+                        type: this.method,
+                        data: $(this).serialize(),
+                        success: function (result) {
+                            $('#result').html(result);
+                        }
+                    });
+                }
+                return false;
+            });
+        });
+    </script>
 </body>
 </html>

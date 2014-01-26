@@ -1,6 +1,7 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<h3>ActionLink example</h3>
 @Ajax.ActionLink("Simple Ajax action", "simpleAjaxAction", new AjaxOptions()
 {
     HttpMethod = "POST",
@@ -10,4 +11,17 @@
 
 <div id="foo">
     toon de uitslag hier
+</div>
+
+<br />
+
+<h3>Example based on JQuery and Html.BeginForm</h3>
+@using (Html.BeginForm())
+{
+  
+    <input type="submit" value="OK" />
+}
+
+<div id="result">
+
 </div>
