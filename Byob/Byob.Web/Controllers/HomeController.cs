@@ -12,11 +12,15 @@ namespace Byob.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private Domain.IPostService postSvc;
+
+        public HomeController(IPostService svc)
+        {
+            this.postSvc = svc;
+        }
         public ActionResult Index()
         {
-            IRepository<Post> rp = new PostRepository();
-            IPostService p = new PostService(rp);
-            IEnumerable<PostPreviewVM> posts = p.getPosts().ToList()
+            IEnumerable<PostPreviewVM> posts = postSvc.getPosts().ToList()
                .Select(el => new PostPreviewVM
                {
                    date = el.date,
