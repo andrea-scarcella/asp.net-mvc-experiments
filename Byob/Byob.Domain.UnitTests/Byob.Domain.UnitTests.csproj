@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="FactoryUntTests.cs" />
+    <Compile Include="PostBuilder.cs" />
     <Compile Include="RepositoryUT.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

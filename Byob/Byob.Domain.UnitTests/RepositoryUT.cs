@@ -17,12 +17,12 @@ namespace Byob.Domain.UnitTests
         private MongoServer server;
         private MongoDatabase database;
         private MongoCollection<Post> collection;
-
+        private PostBuilder pb = null;
         [TestFixtureSetUp]
         public void Setup()
         {
             r = new PostRepository();
-
+            pb = new PostBuilder();
             MongoSetup();
             collection = database.GetCollection<Post>("posts");
             collection.Drop();
@@ -37,14 +37,15 @@ namespace Byob.Domain.UnitTests
         }
 
         [TestFixtureTearDown]
-        public void TearDown() {
+        public void TearDown()
+        {
             collection.Drop();
         }
         [Test]
         public void CanAddPost()
         {
             //Arrange
-            Post p = new Post();
+            Post p = pb.getValidPost();
             //Act
             var retrieved = r.Save(p);
             //Assert
@@ -58,7 +59,7 @@ namespace Byob.Domain.UnitTests
         {
             //Arrangee
             //Act
-            Post p = new Post();
+            Post p = pb.getValidPost();
             var expectedPermalink = p.permalink;
             r.Save(p);
             var q = r.FindByPermalink(expectedPermalink);
@@ -68,10 +69,11 @@ namespace Byob.Domain.UnitTests
             //same entity yet two instances??
         }
         [Test]
-        public void CanAddTwoPosts() {
+        public void CanAddTwoPosts()
+        {
             //Arrange
-            Post p0 = new Post();
-            Post p1 = new Post();
+            Post p0 = pb.getValidPost();
+            Post p1 = pb.getValidPost();
             //Act
             var s0 = r.Save(p0);
             var s1 = r.Save(p1);

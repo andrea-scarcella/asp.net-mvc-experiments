@@ -9,7 +9,9 @@ namespace Byob.Domain.Services.ACL
     {
         public Post AddPost(Web.Models.PostVM newPostVM)
         {
-            Post post = new Post();
+
+            Post post = PostFactory.factory(newPostVM.title, newPostVM.body, newPostVM.tags);
+           //new Post();
             post.body = newPostVM.body;
             post.title = newPostVM.title;
             if (!(null == newPostVM.tags))

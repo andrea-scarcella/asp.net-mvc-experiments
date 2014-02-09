@@ -50,6 +50,7 @@
     <Compile Include="IPostService.cs" />
     <Compile Include="IRepository.cs" />
     <Compile Include="Post.cs" />
+    <Compile Include="PostFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

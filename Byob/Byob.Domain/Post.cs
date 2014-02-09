@@ -10,7 +10,7 @@ namespace Byob.Domain
     public class Post
     {
 
-        public Post()
+        private Post()
         {
             permalink = Guid.NewGuid().ToString();
             comments = new List<Comment>();
