@@ -52,6 +52,22 @@ namespace BeterVervoegen.Test
             Assert.AreEqual(1, fouten.AsEnumerable().Count());
         }
 
-      
+        [Test]
+        public void canCreateNewTest()
+        {
+            //arrange
+            var test = new Taaltest();
+            var eersteTestDeel = new TestDeel();
+           
+            eersteTestDeel.add("eerste vraag", "eerste antwoord", true);
+            var tweedeTestDeel = new TestDeel();
+            tweedeTestDeel.add("tweede vraag", "tweede antowoord", true);
+            test.vragen.Add(eersteTestDeel);
+            test.vragen.Add(tweedeTestDeel);
+            //act
+            //assert
+            Assert.AreEqual(2, test.vragen.Count);
+            
+        }
     }
 }
