@@ -7,6 +7,7 @@ namespace BeterVervoegen.BL
 {
     public class Taaltest
     {
+        public DateTime testDate;
         public Taaltest()
         {
             vragen = new List<TestDeel>();
