@@ -10,6 +10,8 @@ namespace Ef6._1_migrations
     {
         static void Main(string[] args)
         {
+            var ctx = new SampleContext();
+            Console.WriteLine(ctx.Masters.First().Property1);
         }
     }
 }
