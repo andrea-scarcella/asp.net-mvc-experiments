@@ -46,7 +46,7 @@ namespace BeterVervoegen
 			Mapper.CreateMap<TestItem, TestItemVM>();
 			Mapper.CreateMap<Test, TestVM>();
 
-            Database.SetInitializer(new EntityFrameworkRepositoryInitializer());
+            //Database.SetInitializer(new EntityFrameworkRepositoryInitializer());
             using (var ctx= new EntityFrameworkRepository())
             {
                 var foo = ctx.Tests.Count();

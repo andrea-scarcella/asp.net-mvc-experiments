@@ -1,10 +1,7 @@
 ﻿using BeterVervoegen.BL;
-using BeterVervoegen.DAL.Migrations;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Data.Entity.Core.Objects;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Text;
 
@@ -15,44 +12,44 @@ namespace BeterVervoegen.DAL
         public DbSet<Test> Tests { get; set; }
         public DbSet<TestItem> TestItems { get; set; }
         public EntityFrameworkRepository()
-            : base("name=TestContext")
+            : base("name=BeterVervoegenDAL")
         {
 
         }
-
-        public ObjectContext ObjectContext
+         static EntityFrameworkRepository()
+            //: base("name=BeterVervoegenDAL")
         {
-            get
+            Database.SetInitializer<EntityFrameworkRepository>(new DbInitializer());
+            using (var dbc = new EntityFrameworkRepository())
             {
-                //With EF 6.0.2 this would throw an exception if the DB didn't exist.
-                //With EF 6.1.0 this creates the database, but doesn't seed the DB.
-                return ((IObjectContextAdapter)this).ObjectContext;
+                dbc.Database.Initialize(true);
             }
         }
 
-        private static readonly Object syncObj = new Object();
-        public static bool InitializeDatabase()
+    }
+    class DbInitializer : DropCreateDatabaseAlways<EntityFrameworkRepository>
+    {
+        protected override void Seed(EntityFrameworkRepository context)
         {
-            lock (syncObj)
-            {
-                using (var temp = new EntityFrameworkRepository())
-                {
-                    if (temp.Database.Exists()) return true;
+            var testItems = new[] {new TestItem{
+						Id=1,
+						Infinitive="zijn",
+						SimplePast="was",
+						PastParticiple="geweest"},new TestItem{
+						Id=2,
+						Infinitive="lopen",
+						SimplePast="liep",
+						PastParticiple="gelopen"}
+					};
 
-                    var initializer = new MigrateDatabaseToLatestVersion<EntityFrameworkRepository, Configuration>();
-                    Database.SetInitializer(initializer);
-                    try
-                    {
-                        temp.Database.Initialize(true);
-                        return true;
-                    }
-                    catch (Exception ex)
-                    {
-                        //Handle Error in some way
-                        return false;
-                    }
-                }
-            }
+            context.TestItems.AddRange(testItems);
+            context.SaveChanges();
+            var test = new Test(testItems);
+            context.Tests.Add(test);
+            context.SaveChanges();
+
+
         }
     }
+
 }

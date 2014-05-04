@@ -39,6 +39,9 @@
     <Reference Include="EntityFramework.SqlServer">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net40\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="EntityFramework.SqlServerCompact">
+      <HintPath>..\packages\EntityFramework.SqlServerCompact.6.1.0\lib\net40\EntityFramework.SqlServerCompact.dll</HintPath>
+    </Reference>
     <Reference Include="FizzWare.NBuilder">
       <HintPath>..\..\NBuilder-3.0.1\NBuilder\FizzWare.NBuilder.dll</HintPath>
     </Reference>
@@ -61,14 +64,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
-    <Compile Include="DummyTestDeelRepository.cs" />
     <Compile Include="EntityFrameworkRepository.cs" />
-    <Compile Include="EntityFrameworkRepositoryInitializer.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ObjectCopier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlServerRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BeterVervoegen.BL\BeterVervoegen.BL.csproj">
@@ -77,9 +75,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="sql_scripts\create_tables.sql" />
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
