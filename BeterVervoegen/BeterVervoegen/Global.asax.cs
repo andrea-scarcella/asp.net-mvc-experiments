@@ -7,6 +7,8 @@ using System.Web.Routing;
 using AutoMapper;
 using BeterVervoegen.BL;
 using BeterVervoegen.Models;
+using System.Data.Entity;
+using BeterVervoegen.DAL;
 
 namespace BeterVervoegen
 {
@@ -44,7 +46,11 @@ namespace BeterVervoegen
 			Mapper.CreateMap<TestItem, TestItemVM>();
 			Mapper.CreateMap<Test, TestVM>();
 
-
+            Database.SetInitializer(new EntityFrameworkRepositoryInitializer());
+            using (var ctx= new EntityFrameworkRepository())
+            {
+                var foo = ctx.Tests.Count();
+            }
 		}
 	}
 }

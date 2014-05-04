@@ -7,7 +7,7 @@ namespace BeterVervoegen.Models
 {
 	public class TestItemVM
 	{
-		public int ItemId { get; set; }
+		public int Id { get; set; }
 		public string Infinitive { get; set; }
 		public string AnswerSimplePast { get; set; }
 		public string AnswerPastParticiple { get; set; }

@@ -12,7 +12,11 @@ namespace BeterVervoegen.BL
             get;
             private set;
         }
-
+        public Test()
+        {
+            Id = Guid.NewGuid();
+            Items = new List<TestItem>();
+        }
 
         public Test(IEnumerable<TestItem> itemList)
         {
@@ -25,7 +29,7 @@ namespace BeterVervoegen.BL
 
         public TestItem Item(int p1)
         {
-            return Items.Where(x => x.ItemId == p1).FirstOrDefault();
+            return Items.Where(x => x.Id == p1).FirstOrDefault();
         }
 
         public void Evaluate()

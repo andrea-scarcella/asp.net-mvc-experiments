@@ -13,22 +13,28 @@ namespace BeterVervoegen.Controllers
 {
     public class TaaltestController : Controller
     {
+        private EntityFrameworkRepository testRepository;
+        public TaaltestController()
+        {
+            testRepository = new EntityFrameworkRepository();
+        }
         //
         // GET: /Taaltest/
         public ActionResult Index()
         {
 
-            Test t0 = new Test(
-                new[] {
-					new TestItem{
-						ItemId=1,
-						Infinitive="zijn",
-						SimplePast="was",
-						PastParticiple="geweest"},new TestItem{
-						ItemId=2,
-						Infinitive="lopen",
-						SimplePast="liep",
-						PastParticiple="gelopen"}});
+            //Test t0 = new Test(
+            //    new[] {
+            //        new TestItem{
+            //            ItemId=1,
+            //            Infinitive="zijn",
+            //            SimplePast="was",
+            //            PastParticiple="geweest"},new TestItem{
+            //            ItemId=2,
+            //            Infinitive="lopen",
+            //            SimplePast="liep",
+            //            PastParticiple="gelopen"}});
+            var t0 = testRepository.Tests.First();
 
             TestVM dto = Mapper.Map<TestVM>(t0);
 
@@ -46,7 +52,7 @@ namespace BeterVervoegen.Controllers
                 foreach (var item in taalTest.Items)
                 {
                     //quick and dirty solution
-                    var testItem = t.Items.First(el => el.ItemId == item.ItemId);
+                    var testItem = t.Items.First(el => el.Id == item.Id);
                     testItem.AnswerPastParticiple = item.AnswerPastParticiple;
                     testItem.AnswerSimplePast = item.AnswerSimplePast;
                 }
@@ -63,18 +69,8 @@ namespace BeterVervoegen.Controllers
 
         private Test testService_getTest(Guid guid)
         {
+            Test t0 = testRepository.Tests.First(el => (Equals(el.Id, guid)));
 
-            Test t0 = new Test(
-                new[] {
-					new TestItem{
-						ItemId=1,
-						Infinitive="zijn",
-						SimplePast="was",
-						PastParticiple="geweest"},new TestItem{
-						ItemId=2,
-						Infinitive="lopen",
-						SimplePast="liep",
-						PastParticiple="gelopen"}});
             return t0;
         }
     }

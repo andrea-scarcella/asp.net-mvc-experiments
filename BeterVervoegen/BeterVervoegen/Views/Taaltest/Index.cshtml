@@ -10,7 +10,7 @@
 <div class="test">
 	@using (Html.BeginForm())
  {
-	 var ordered = Model.Items.OrderBy(x => x.ItemId).ToList();
+	 var ordered = Model.Items.OrderBy(x => x.Id).ToList();
 	 for (int i = 0; i < ordered.Count; i++)
 	 {
 		@Html.EditorFor(x => x.Items[i], "TestItemVM")

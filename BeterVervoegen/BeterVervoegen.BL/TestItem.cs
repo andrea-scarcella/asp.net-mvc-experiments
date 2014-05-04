@@ -17,7 +17,7 @@ namespace BeterVervoegen.BL
 		public TestItem(int ItemId, string Infinitive, string SimplePast, string PastParticiple)
 		{
 			// TODO: Complete member initialization
-			this.ItemId = ItemId;
+			this.Id = ItemId;
 			this.Infinitive = Infinitive;
 			this.SimplePast = SimplePast;
 			this.PastParticiple = PastParticiple;
@@ -48,7 +48,7 @@ namespace BeterVervoegen.BL
 			return correct ? "OK" : "KO";
 		}
 
-		public int ItemId { get; set; }
+		public int Id { get; set; }
 
 		public decimal Score
 		{
