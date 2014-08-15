@@ -1,16 +1,17 @@
 ﻿<!DOCTYPE html>
-<html ng-app>
+<html ng-app="gettingStartedApp">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @RenderSection("PageSpecificStyles",required:false)
+    @RenderSection("PageSpecificStyles", required: false)
 </head>
 <body>
 
+
+
     @RenderBody()
+    @RenderSection("BodyScripts", required: false)
 
-
-    @RenderSection("scripts", required: false)
 </body>
 </html>
