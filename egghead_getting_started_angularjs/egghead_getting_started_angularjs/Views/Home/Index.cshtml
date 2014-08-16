@@ -12,14 +12,23 @@
 
 @section BodyScripts{
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.18/angular.min.js"></script>
+    <script src="~/Scripts/AngularModules.js"></script>
     <script src="~/Scripts/FirstCtrl.js"></script>
+    <script src="~/Scripts/SecondCtrl.js"></script>
 }
+<div>
+    @*if next line is removed data.message disappear from global scope*@
+    @*as a result each input updates the contents of a single h1 tag*@
+    <input type="text" ng-model="data.message" />
+    <h1>Hello {{data.message}}</h1>
+</div>
+
 <div ng-controller="FirstCtrl">
-    <div>
-        <h1>Hello {{data.message}}</h1>
-    </div>
-    <div>
-        <input type="text" ng-model="data.message" />
-    </div>
+    <input type="text" ng-model="data.message" />
+    <h1>Hello {{data.message}}</h1>
+</div>
+<div ng-controller="SecondCtrl">
+    <input type="text" ng-model="data.message" />
+    <h1>Hello {{data.message}}</h1>
 </div>
 
